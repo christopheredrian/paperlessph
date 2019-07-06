@@ -15,9 +15,8 @@ Route::get('/', function () {
     return view('layouts.app');
 });
 
-Route::get('/post-templates', function(){
-    return view('post-templates.index');
-});
+
+Route::resource('post-templates', 'PostTemplatesController');
 
 Auth::routes();
 
