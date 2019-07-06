@@ -11,18 +11,18 @@
 |
 */
 
-Route::get('/{any?}', function () {
-    return view('welcome');
+//Route::get('/{any?}', function () {
+//    return view('welcome');
+//});
+
+Route::get('/', function () {
+    return view('layouts.app');
 });
 
-//Route::get('/', function () {
-//    return view('layouts.app');
-//});
+/*
+|--------------------------------------------------------------------------
+| Post Templates
+|-----
+*/
 
-//Route::get('/post-templates', function(){
-//    return view('post-templates.index');
-//});
-//
-//Auth::routes();
-//
-//Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('/post-templates', 'PostTemplatesController');

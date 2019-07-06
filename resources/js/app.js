@@ -1,13 +1,10 @@
 // require('./bootstrap');
 
 import Vue from 'vue';
-import VueRouter from 'vue-router';
-import routes from './routes';
+import CreateEditPostTemplate from './components/post-templates/create-edit-post-template';
 
-Vue.use(VueRouter);
-
+Vue.component('create-edit-post-template', CreateEditPostTemplate);
 
 let app = new Vue({
     el: '#app',
-    router: new VueRouter(routes)
 });
