@@ -11,14 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.app');
+Route::get('/{any?}', function () {
+    return view('welcome');
 });
 
-Route::get('/post-templates', function(){
-    return view('post-templates.index');
-});
+//Route::get('/', function () {
+//    return view('layouts.app');
+//});
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/post-templates', function(){
+//    return view('post-templates.index');
+//});
+//
+//Auth::routes();
+//
+//Route::get('/home', 'HomeController@index')->name('home');

@@ -24,6 +24,11 @@ class CreatePostsAndPostTemplateTables extends Migration
               `updated_at` datetime DEFAULT NULL,
               PRIMARY KEY (`id`)
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+          
+        
+        ");
+
+        DB::statement("
             
             
             CREATE TABLE `posts` (
@@ -39,8 +44,6 @@ class CreatePostsAndPostTemplateTables extends Migration
               CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`post_template_id`) REFERENCES `post_templates` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
             
-        
-        
         ");
     }
 
