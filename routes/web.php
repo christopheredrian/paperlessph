@@ -11,13 +11,22 @@
 |
 */
 
+//Route::get('/{any?}', function () {
+//    return view('welcome');
+//});
+
 Route::get('/', function () {
     return view('layouts.app');
 });
 
+/*
+|--------------------------------------------------------------------------
+| Post Templates
+|-----
+*/
 
-Route::resource('post-templates', 'PostTemplatesController');
+//Route::resource('post-templates', 'PostTemplatesController');
 
-Auth::routes();
+//Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('/post-templates', 'PostTemplatesController');

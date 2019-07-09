@@ -14,10 +14,14 @@ class PostTemplatesController extends Controller
      */
     public function index()
     {
-        $data = [
-            'post_templates' => PostTemplate::all()
+
+        $templates = PostTemplate::all();
+
+        $viewData = [
+            'templates' => $templates
         ];
-        return view ('post-templates.index', $data);
+
+        return view('post-templates.index', $viewData);
     }
 
     /**

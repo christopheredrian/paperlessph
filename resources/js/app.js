@@ -1,12 +1,11 @@
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
 // require('./bootstrap');
 
 import Vue from 'vue';
+import CreateEditPostTemplate from './components/post-templates/create-edit-post-template';
+
+Vue.component('create-edit-post-template', CreateEditPostTemplate);
+
+// require('./bootstrap');
 
 /**
  * The following block of code may be used to automatically register your
@@ -19,7 +18,7 @@ import Vue from 'vue';
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('post-templates-create', require('./components/post-templates/post-templates-create').default);
 
 /**
