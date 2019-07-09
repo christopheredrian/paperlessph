@@ -138,6 +138,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -689,163 +712,216 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("label", { attrs: { for: "template-name" } }, [
-        _vm._v("Template Name")
+  return _c("div", [
+    _c("div", { staticClass: "card" }, [
+      _c("div", { staticClass: "card-header" }, [
+        _vm._v("\n            Main Details\n        ")
       ]),
       _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.template_name,
-            expression: "template_name"
-          }
-        ],
-        attrs: { id: "template-name", type: "text" },
-        domProps: { value: _vm.template_name },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.template_name = $event.target.value
-          }
-        }
-      }),
-      _vm._v(" "),
-      _vm._l(_vm.template_data, function(template_datum, index) {
-        return _c("div", [
-          _c("label", { attrs: { for: "label" } }, [_vm._v("Label")]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: template_datum.label,
-                expression: "template_datum.label"
-              }
-            ],
-            attrs: { id: "label", type: "text" },
-            domProps: { value: template_datum.label },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(template_datum, "label", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "template-type" } }, [
-            _vm._v("Data Type")
-          ]),
-          _vm._v(" "),
-          _c(
-            "select",
+      _c("div", { staticClass: "card-body" }, [
+        _c("label", { attrs: { for: "template-name" } }, [
+          _vm._v("Template Name")
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
             {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: template_datum.type,
-                  expression: "template_datum.type"
-                }
-              ],
-              attrs: { name: "template_type", id: "template-type" },
-              on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.$set(
-                    template_datum,
-                    "type",
-                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                  )
-                }
+              name: "model",
+              rawName: "v-model",
+              value: _vm.template_name,
+              expression: "template_name"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: { id: "template-name", type: "text" },
+          domProps: { value: _vm.template_name },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
               }
-            },
-            _vm._l(_vm.template_valid_types, function(type) {
-              return _c("option", _vm._b({}, "option", type, false), [
-                _vm._v(_vm._s(type))
-              ])
-            }),
-            0
-          ),
-          _vm._v(" "),
-          template_datum.type === "text"
-            ? _c("div", [_vm._v("\n            @Text\n        ")])
-            : _vm._e(),
-          _vm._v(" "),
-          template_datum.type === "longtext"
-            ? _c("div", [_vm._v("\n            @LongText\n        ")])
-            : _vm._e(),
-          _vm._v(" "),
-          template_datum.type === "dropdown"
-            ? _c(
-                "div",
-                [
-                  _vm._v("\n            @Dropdown\n            "),
-                  _vm._l(template_datum.options, function(option) {
-                    return _c("div", [
+              _vm.template_name = $event.target.value
+            }
+          }
+        })
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "card" }, [
+      _c("div", { staticClass: "card-header" }, [
+        _vm._v("\n            Form Details\n        ")
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "card-body" },
+        [
+          _vm._l(_vm.template_data, function(template_datum, index) {
+            return _c("div", [
+              _c("div", { staticClass: "row mb-3" }, [
+                _c("div", { staticClass: "col col-md-6" }, [
+                  _c("div", { staticClass: "form-inline " }, [
+                    _c("div", { staticClass: "form-group mr-2 ml-2" }, [
+                      _c("label", { attrs: { for: "label" } }, [
+                        _vm._v("Label")
+                      ]),
+                      _vm._v(" "),
                       _c("input", {
                         directives: [
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: option.value,
-                            expression: "option.value"
+                            value: template_datum.label,
+                            expression: "template_datum.label"
                           }
                         ],
-                        attrs: { type: "text" },
-                        domProps: { value: option.value },
+                        staticClass: "form-control ml-2",
+                        attrs: { id: "label", type: "text" },
+                        domProps: { value: template_datum.label },
                         on: {
                           input: function($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.$set(option, "value", $event.target.value)
+                            _vm.$set(
+                              template_datum,
+                              "label",
+                              $event.target.value
+                            )
                           }
                         }
                       })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", { attrs: { for: "template-type" } }, [
+                        _vm._v("Data Type")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: template_datum.type,
+                              expression: "template_datum.type"
+                            }
+                          ],
+                          staticClass: "ml-2 form-control",
+                          attrs: { name: "template_type", id: "template-type" },
+                          on: {
+                            change: function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                template_datum,
+                                "type",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            }
+                          }
+                        },
+                        _vm._l(_vm.template_valid_types, function(type) {
+                          return _c(
+                            "option",
+                            _vm._b({}, "option", type, false),
+                            [_vm._v(_vm._s(type))]
+                          )
+                        }),
+                        0
+                      )
                     ])
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      on: {
-                        click: function($event) {
-                          return _vm.addDropdownOption(index)
-                        }
-                      }
-                    },
-                    [_vm._v("Add Option")]
-                  )
-                ],
-                2
-              )
-            : _vm._e()
-        ])
-      }),
-      _vm._v(" "),
-      _c("button", { on: { click: _vm.addFormElement } }, [_vm._v("Add")]),
-      _vm._v(" "),
-      _c("pre", [_vm._v(_vm._s(JSON.stringify(_vm.template_data, null, 2)))])
-    ],
-    2
-  )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col col-md-5" }, [
+                  template_datum.type === "dropdown"
+                    ? _c(
+                        "div",
+                        { staticClass: "form-group" },
+                        [
+                          _c("p", [_vm._v("Dropdown Options")]),
+                          _vm._v(" "),
+                          _c("hr"),
+                          _vm._v(" "),
+                          _vm._l(template_datum.options, function(option) {
+                            return _c("div", [
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: option.value,
+                                    expression: "option.value"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: { type: "text" },
+                                domProps: { value: option.value },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      option,
+                                      "value",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("br")
+                            ])
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-success",
+                              on: {
+                                click: function($event) {
+                                  return _vm.addDropdownOption(index)
+                                }
+                              }
+                            },
+                            [_vm._v("Add Option")]
+                          )
+                        ],
+                        2
+                      )
+                    : _vm._e()
+                ])
+              ])
+            ])
+          }),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-success",
+              on: { click: _vm.addFormElement }
+            },
+            [_vm._v("Add")]
+          )
+        ],
+        2
+      )
+    ]),
+    _vm._v(" "),
+    _c("pre", [_vm._v(_vm._s(JSON.stringify(_vm.template_data, null, 2)))])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

@@ -1,41 +1,64 @@
 <template>
     <div>
 
-        <label for="template-name">Template Name</label>
-        <input id="template-name" type="text" v-model="template_name">
-
-        <div v-for="(template_datum, index) in template_data">
-
-            <label for="label">Label</label>
-            <input id="label" type="text" v-model="template_datum.label">
-
-            <label for="template-type">Data Type</label>
-            <select name="template_type" id="template-type" v-model="template_datum.type">
-                <option v-for="type in template_valid_types" v-bind="type">{{type}}</option>
-            </select>
-
-            <div v-if="template_datum.type === 'text'">
-                @Text
+        <div class="card">
+            <div class="card-header">
+                Main Details
             </div>
-            <div v-if="template_datum.type === 'longtext'">
-                @LongText
+            <div class="card-body">
+                <label for="template-name">Template Name</label>
+                <input class="form-control" id="template-name" type="text" v-model="template_name">
             </div>
-
-            <div v-if="template_datum.type === 'dropdown'">
-
-                <!-- Add options -->
-                @Dropdown
-                <div v-for="option in template_datum.options">
-                    <input type="text" v-model="option.value">
-                </div>
-
-                <button @click="addDropdownOption(index)">Add Option</button>
-
-            </div>
-
         </div>
 
-        <button @click="addFormElement">Add</button>
+
+        <div class="card">
+            <div class="card-header">
+                Form Details
+            </div>
+            <div class="card-body">
+                <div v-for="(template_datum, index) in template_data">
+
+                    <div class="row mb-3">
+                        <div class="col col-md-6">
+                            <div class="form-inline ">
+                                <div class="form-group mr-2 ml-2">
+                                    <label for="label">Label</label>
+                                    <input class="form-control ml-2" id="label" type="text"
+                                           v-model="template_datum.label">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="template-type">Data Type</label>
+                                    <select name="template_type" id="template-type" class="ml-2 form-control"
+                                            v-model="template_datum.type">
+                                        <option v-for="type in template_valid_types" v-bind="type">{{type}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-md-5">
+                            <div v-if="template_datum.type === 'dropdown'" class="form-group">
+
+                                <p>Dropdown Options</p>
+                                <hr>
+                                <!-- Add options -->
+                                <div v-for="option in template_datum.options">
+                                    <input class="form-control" type="text" v-model="option.value"> <br>
+                                </div>
+
+                                <button @click="addDropdownOption(index)" class="btn btn-success">Add Option</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <button @click="addFormElement" class="btn btn-success">Add</button>
+            </div>
+        </div>
+
 
         <pre>{{ JSON.stringify(template_data, null, 2) }}</pre>
     </div>
