@@ -1,3 +1,9 @@
+<style>
+    select {
+        min-width: 135px;
+    }
+</style>
+
 <template>
     <div>
 
@@ -11,7 +17,6 @@
             </div>
         </div>
 
-
         <div class="card">
             <div class="card-header">
                 Form Details
@@ -20,7 +25,7 @@
                 <div v-for="(template_datum, index) in template_data">
 
                     <div class="row mb-3">
-                        <div class="col col-md-6">
+                        <div class="col col-md-7">
                             <div class="form-inline ">
                                 <div class="form-group mr-2 ml-2">
                                     <label for="label">Label</label>
@@ -30,8 +35,12 @@
 
                                 <div class="form-group">
                                     <label for="template-type">Data Type</label>
-                                    <select name="template_type" id="template-type" class="ml-2 form-control"
-                                            v-model="template_datum.type">
+                                    <select
+                                            name="template_type"
+                                            id="template-type"
+                                            class="ml-2 form-control"
+                                            v-model="template_datum.type"
+                                    >
                                         <option v-for="type in template_valid_types" v-bind="type">{{type}}</option>
                                     </select>
                                 </div>
@@ -44,10 +53,16 @@
                                 <hr>
                                 <!-- Add options -->
                                 <div v-for="option in template_datum.options">
-                                    <input class="form-control" type="text" v-model="option.value"> <br>
+                                    <div class="input-group mb-1">
+                                        <input class="form-control" type="text" v-model="option.value"> <br>
+                                        <span class="input-group-append">
+                                            <button class="btn btn-danger">X</button>
+                                        </span>
+
+                                    </div>
                                 </div>
 
-                                <button @click="addDropdownOption(index)" class="btn btn-success">Add Option</button>
+                                <button @click="addDropdownOption(index)" class="btn btn-success mt-2">Add Option</button>
 
                             </div>
                         </div>
@@ -58,7 +73,6 @@
                 <button @click="addFormElement" class="btn btn-success">Add</button>
             </div>
         </div>
-
 
         <pre>{{ JSON.stringify(template_data, null, 2) }}</pre>
     </div>

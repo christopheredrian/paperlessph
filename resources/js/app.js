@@ -19,7 +19,7 @@ Vue.component('create-edit-post-template', CreateEditPostTemplate);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-Vue.component('post-templates-create', require('./components/post-templates/post-templates-create').default);
+Vue.component('create-edit-post-template', require('./components/post-templates/create-edit-post-template').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
