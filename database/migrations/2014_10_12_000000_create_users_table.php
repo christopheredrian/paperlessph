@@ -5,6 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use App\User;
 
+
 class CreateUsersTable extends Migration
 {
     /**
@@ -16,7 +17,9 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->string('first_name');
+            $table->string('surname');
+            $table->string('username');
             $table->enum('role', [User::VALID_USER_ROLES])->comment('Valid user roles');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

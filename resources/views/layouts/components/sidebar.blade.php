@@ -8,6 +8,12 @@
             {{--</a>--}}
             {{--</li>--}}
             <li class="nav-title">Configuration</li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('users')  }}">
+                    <i class="nav-icon icon-drop"></i> Users</a>
+            </li>
+
             <li class="nav-item">
                 <a class="nav-link" href="{{ url('post-templates')  }}">
                     <i class="nav-icon icon-drop"></i> Post Templates</a>

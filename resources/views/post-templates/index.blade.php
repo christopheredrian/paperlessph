@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    <title>Post Tempaltes</title>
+@endsection
+
 @section('content')
 
     <div class="card">

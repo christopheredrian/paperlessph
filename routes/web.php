@@ -30,3 +30,5 @@ Route::get('/', function () {
 //Auth::routes();
 
 Route::resource('/post-templates', 'PostTemplatesController');
+
+Route::resource('/users', 'UserController');

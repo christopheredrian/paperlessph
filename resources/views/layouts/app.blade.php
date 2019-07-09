@@ -19,7 +19,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Paperless</title>
+    @yield('title')
+
     <!-- Icons-->
     <link rel="icon" type="image/ico" href="./img/favicon.ico" sizes="any"/>
     <link href="/node_modules/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">

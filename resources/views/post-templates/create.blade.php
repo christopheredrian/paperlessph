@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    <title>Create new Post Template</title>
+@endsection
+
 @section('content')
 
     <div id="app">
