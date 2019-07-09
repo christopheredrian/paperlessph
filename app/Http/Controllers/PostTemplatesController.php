@@ -31,7 +31,6 @@ class PostTemplatesController extends Controller
      */
     public function create()
     {
-        //
         return view('post-templates.create');
     }
 

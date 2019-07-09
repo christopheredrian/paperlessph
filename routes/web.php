@@ -25,4 +25,8 @@ Route::get('/', function () {
 |-----
 */
 
+//Route::resource('post-templates', 'PostTemplatesController');
+
+//Auth::routes();
+
 Route::resource('/post-templates', 'PostTemplatesController');
