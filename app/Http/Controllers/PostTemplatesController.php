@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use App\PostTemplate;
 use Illuminate\Http\Request;
 
@@ -37,18 +38,56 @@ class PostTemplatesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+
+        $resultStatus = 500;
+
+        try {
+
+            $postTemplate = new PostTemplate();
+
+            $templateName = $request->template_name ?? null;
+            $templateJson = $request->template_json ?? null;
+
+            if (empty($templateJson)) {
+                throw new \InvalidArgumentException("Template json invalid");
+            }
+
+            if (empty($templateName)) {
+                throw new \InvalidArgumentException("Name cannot be empty");
+            }
+
+
+            $postTemplate->template_json = json_encode($templateJson);
+            $postTemplate->template_name = $templateName;
+            $isSaved = $postTemplate->save();
+
+            if (!$isSaved) {
+                throw new \ErrorException("There was a problem in saving the template.");
+            }
+
+            $resultMessage = "Successfully saved the template";
+            $resultStatus = 200;
+
+        } catch (\Exception $exception) {
+            $resultMessage = $exception->getMessage();
+        }
+
+        return response()->json([
+            'result_message' => $resultMessage
+        ], $resultStatus);
+
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -59,7 +98,7 @@ class PostTemplatesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -70,8 +109,8 @@ class PostTemplatesController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -82,7 +121,7 @@ class PostTemplatesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
