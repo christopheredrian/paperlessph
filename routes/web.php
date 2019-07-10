@@ -31,4 +31,6 @@ Route::get('/', function () {
 
 Route::resource('/post-templates', 'PostTemplatesController');
 
-Route::resource('/users', 'UserController');
+Route::resource('/users', 'UsersController');
+Route::post('users/update/{id}', 'UsersController@update');
+Route::get('users/disable/{id}', 'UsersController@softDelete');

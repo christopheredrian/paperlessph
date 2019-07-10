@@ -18,10 +18,12 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('first_name');
-            $table->string('surname');
+            $table->string('last_name');
             $table->string('username');
             $table->enum('role', [User::VALID_USER_ROLES])->comment('Valid user roles');
             $table->string('email')->unique();
+            $table->boolean('is_disabled')->default(0);
+            $table->timestamp('last_logged_in')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
