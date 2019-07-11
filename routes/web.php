@@ -15,8 +15,30 @@
 //    return view('welcome');
 //});
 
-Route::get('/', function () {
-    return view('layouts.app');
+
+/**
+ * APP_URL must be setup correctly on the .env
+ *  Laravel valet: APP_URL=http://paperlessph.test
+ *  php artisan serve: APP_URL=http://localhost
+ */
+$domainName = str_replace(['http://', 'https://'], '', config('app.url'));
+
+
+Route::domain("{admin}.$domainName")->group(function () {
+    /**
+     * Admin Routes
+     */
+    Route::get('/', function () {
+        return view('layouts.app');
+    });
+
+    Route::post('users/update/{id}', 'UsersController@update');
+    Route::get('users/enable/{id}', 'UsersController@enable');
+    Route::get('users/disable/{id}', 'UsersController@softDelete');
+    Route::resource('/users', 'UsersController');
+
+    Route::resource('/post-templates', 'PostTemplatesController');
+
 });
 
 /*
@@ -29,8 +51,3 @@ Route::get('/', function () {
 
 //Auth::routes();
 
-Route::resource('/post-templates', 'PostTemplatesController');
-
-Route::resource('/users', 'UsersController');
-Route::post('users/update/{id}', 'UsersController@update');
-Route::get('users/disable/{id}', 'UsersController@softDelete');

@@ -83,7 +83,7 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($subdomain, $id)
     {
         // N/A for now
     }
@@ -91,20 +91,15 @@ class UsersController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($subdomain, $id)
     {
-        $user_id_count = count(User::all());
-
-        if($id > $user_id_count){
-            abort(404);
-        } else {
-            return view('users.edit', [
-                'user' => User::findOrFail($id)
-            ]);
-        }
+        $user = User::findOrFail($id);
+        return view('users.edit', [
+            'user' => $user
+        ]);
     }
 
     /**
@@ -114,7 +109,7 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $subdomain, $id)
     {
         $validated_data = $request->validate($this->update_user_validation);
 
@@ -143,7 +138,7 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function softDelete($id)
+    public function softDelete($subdomain, $id)
     {
         $user = User::find($id);
 
@@ -159,7 +154,8 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function enable($id)
+    public function enable($subdomain, $id)
+
     {
         $user = User::find($id);
 

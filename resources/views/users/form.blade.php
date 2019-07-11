@@ -1,4 +1,4 @@
-<form action="{{ strpos(Request::url(), '/users/create') ? action('UsersController@store') : url("/users/update/{$user->id}/") }}"
+<form action="{{ (strpos(Request::url(), '/users/create') !== false) ? '/users/create' : url("/users/update/{$user->id}/") }}"
       method="post">
     {{csrf_field()}}
 
