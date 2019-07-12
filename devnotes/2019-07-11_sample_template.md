@@ -1,6 +1,11 @@
+## 2019-07-11 Sameple Template
+
+Initial sample template for now
+
+```json
 {
   "name": "Dental Records",
-  "description": "Espiritu Dental cleaning dental records",
+  "description": "Dental Clinic Records description",
   "is_active": 1,
   "location": "sidebar",
   "form_values": [
@@ -40,3 +45,4 @@
     }
   ]
 }
+```
